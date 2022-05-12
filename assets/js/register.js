@@ -1,20 +1,20 @@
 const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~1234567890]/;
 let registerbtn=()=>{
-//     chek_name_F();
-//    chek_age();
-//    chek_phone();
-//    chek_email();
-//    chek_afm();
-//    chek_amka();
-//    chek_credit_cart()
-//    chek_date();
-//    chek_addres();
-//     let a=chek_name()&& chek_name_F()&&chek_age()&&chek_phone()&&chek_email()&&chek_afm()&&chek_amka()&&chek_credit_cart()&&chek_date()&&chek_addres();
+    chek_name_F();
+   chek_age();
+   chek_phone();
+   chek_email();
+   chek_afm();                                           //otan patithi to koubi kali tis methodoys gia na kani tous elegxous
+   chek_amka();
+   chek_credit_cart()
+   chek_date();
+   chek_addres();
+    let a=chek_name()&& chek_name_F()&&chek_age()&&chek_phone()&&chek_email()&&chek_afm()&&chek_amka()&&chek_credit_cart()&&chek_date()&&chek_addres();
 
-//    if(a){
+   if(a){
     register();
 
-//    }
+   }
 }
 
 let clearbtn=()=>{
@@ -23,7 +23,7 @@ let clearbtn=()=>{
     document.getElementById("name_F").style.backgroundColor = "white";
     document.getElementById("age").style.backgroundColor = "white";
     document.getElementById("phone").style.backgroundColor = "white";
-    document.getElementById("email").style.backgroundColor = "white";
+    document.getElementById("email").style.backgroundColor = "white";         //katharizi to input
     document.getElementById("afm").style.backgroundColor = "white";
     document.getElementById("amka").style.backgroundColor = "white";
     document.getElementById("credit_cart").style.backgroundColor = "white";
@@ -41,7 +41,7 @@ let chek_name=()=>{
         alert('Απαγορεύονται τα σύμβολα και οι αριθμοί');
         document.getElementById("name").style.backgroundColor = "red";
         return false;
-    }else if( hasWhiteSpace(name)!=1) {
+    }else if( hasWhiteSpace(name)!=1) {                                             
         alert('Πρέπει να έχει ένα κενό');
         document.getElementById("name").style.backgroundColor = "red";
         return false;
@@ -263,11 +263,11 @@ function digits_count(num) {
    
    
     $.ajax({url: "http://localhost/ergasia/php/main.php/register",
-    method: 'PUT',
+    method: 'POST',
     dataType: "json",
     contentType: 'application/json',
     data: JSON.stringify( {name: name, name_F: name_F,age: age,phone: phone,email: email,afm: afm, amka: amka,credit_cart: credit_cart,
-        expiration_date:expiration_date,Holder_address:Holder_address,comment: comment}),
+        expiration_date:expiration_date,Holder_address:Holder_address,comment: comment}),                                               //ajax request thw jquery me ta stoixia pou thelo na peraso st vash       
     success: register_result(name,name_F,age,phone,email,afm,amka,credit_cart,expiration_date,Holder_address,comment),
     error: register_error});
 
@@ -275,14 +275,15 @@ function digits_count(num) {
   }
 
 
-  let register_error=()=>{
-            alert('KATI PHGE LATHOS');
+  let register_error=(data)=>{
+    // var x = data.responseJSON;
+    // alert(x.errormesg);
   }
   
 
   let register_result=(name,name_F,age,phone,email,afm,amka,credit_cart,expiration_date,Holder_address,comment)=>{
       
-      let s="";
+      let s="";                                                          // an gini me apytixia to request kai ektelesti emfanizi ta stoixia pou valame
       $('#formSE').html(s);
       let text=` 
       <h1 class="headings1">Επιτυχής εγγραφή</h1>
@@ -290,7 +291,7 @@ function digits_count(num) {
       <p id="name" class="output">Όνομα + Επώνυμο:${name}</p>
       <p id="name_F"class="output">Πατρώνυμο: ${name_F}</p>
       <p id="age"class="output">Ηλικία: ${age}</p>
-      <p id="phone"class="output">Τηλ: ${phone}</p>
+      <p id="phone"class="output">Τηλ: ${phone}</p>                                                           
       <p id="email"class="output">Email: ${email}</p>
       <p id="afm"class="output">ΑΦΜ: ${afm}</p>
       <p id="amka"class="output">ΑΜΚΑ: ${amka}</p>
