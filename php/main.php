@@ -24,6 +24,9 @@
 
 
     function handle_register($method,$input){
+	
+	            $name=$input['name'];
+$name=$input['name'];
         $name=$input['name'];
         $name_F=$input['name_F'];
         $age=$input['age'];
