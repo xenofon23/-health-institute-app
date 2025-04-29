@@ -1,0 +1,1 @@
+![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/xenofon23/-health-institute-app?utm_source=oss&utm_medium=github&utm_campaign=xenofon23%2F-health-institute-app&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
